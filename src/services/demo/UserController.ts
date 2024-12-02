@@ -12,6 +12,8 @@ export async function queryUserList(
     current?: number;
     /** pageSize */
     pageSize?: number;
+    sorter?: Record<string, any>;
+    filter?: Record<string, any>;
   },
   options?: { [key: string]: any },
 ) {

@@ -94,7 +94,6 @@ const TableList: React.FC<unknown> = () => {
     {
       title: '名称',
       dataIndex: 'name',
-      tip: '名称是唯一的 key',
       formItemProps: {
         rules: [
           {
@@ -164,8 +163,6 @@ const TableList: React.FC<unknown> = () => {
         request={async (params, sorter, filter) => {
           const { data, success } = await queryUserList({
             ...params,
-            // FIXME: remove @ts-ignore
-            // @ts-ignore
             sorter,
             filter,
           });
