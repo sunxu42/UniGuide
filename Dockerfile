@@ -1,5 +1,5 @@
 # 使用 Node.js 官方镜像，选择一个合适的版本
-FROM node:22.11.0
+FROM node:16 AS builder
 
 # 设置工作目录
 WORKDIR /UniGuide
@@ -20,7 +20,7 @@ RUN npm run build
 FROM nginx:alpine
 
 # 将构建的 React 项目复制到 Nginx 的 html 目录
-COPY --from=0 /UniGuide/dist /usr/share/nginx/html
+COPY --from=builder /UniGuide/dist /usr/share/nginx/html
 
 # 暴露 Nginx 的 80 端口
 EXPOSE 80
